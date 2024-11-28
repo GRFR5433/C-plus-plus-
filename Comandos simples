@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string nome;
+    int idade;
+
+    std::cout << "Digite seu nome: ";
+    std::cin >> nome;
+
+    std::cout << "Digite sua idade: ";
+    std::cin >> idade;
+
+    if (idade > 12) {
+        std::cout << std::string(40, '-') << std::endl;
+        std::cout << "Bem-vindo, " << nome << std::endl;
+        std::cout << std::string(40, '-') << std::endl;
+        std::cout << "C++ é uma linguagem de programação poderosa e versátil, amplamente utilizada para desenvolvimento de software de alto desempenho, jogos, sistemas operacionais e muito mais." << std::endl;
+        std::cout << std::string(40, '-') << std::endl;
+    } else {
+        std::cout << "Você não pode iniciar o programa. Idade mínima é 13 anos." << std::endl;
+    }
+
+    return 0;
+}
