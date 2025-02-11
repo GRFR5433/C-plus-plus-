@@ -1,10 +1,9 @@
-include <iostream>
+#include <iostream>
 #include <string>
 
 int main() {
     std::string nome;
-    int idade;
-    int escolha;
+    int idade, escolha;
 
     std::cout << "Digite seu nome: ";
     std::cin >> nome;
@@ -12,55 +11,36 @@ int main() {
     std::cout << "Digite sua idade: ";
     std::cin >> idade;
 
-    if (idade > 12) {
-        std::cout << std::string(40, '-') << std::endl;
-        std::cout << "Bem-vindo, " << nome << "!" << std::endl;
-
-        do {
-            std::cout << std::string(40, '-') << std::endl;
-            std::cout << "Escolha um tema para aprender mais sobre C++:" << std::endl;
-            std::cout << "1 - História e Origem" << std::endl;
-            std::cout << "2 - Aplicações de C++" << std::endl;
-            std::cout << "3 - Características da Linguagem" << std::endl;
-            std::cout << "4 - Sair" << std::endl;
-            std::cout << "Digite o número da sua escolha: ";
-            std::cin >> escolha;
-
-            std::cout << std::string(40, '-') << std::endl;
-
-            switch (escolha) {
-                case 1:
-                    std::cout << "História e Origem:" << std::endl;
-                    std::cout << "C++ foi criado em 1985 por Bjarne Stroustrup como uma extensão da linguagem C. " 
-                              << "Seu objetivo era combinar a eficiência de C com recursos de programação orientada a objetos." 
-                              << std::endl;
-                    break;
-                case 2:
-                    std::cout << "Aplicações de C++:" << std::endl;
-                    std::cout << "C++ é usado em uma ampla gama de áreas, como:" << std::endl;
-                    std::cout << "- Desenvolvimento de jogos (ex.: Unreal Engine);" << std::endl;
-                    std::cout << "- Sistemas operacionais (ex.: Windows e Linux);" << std::endl;
-                    std::cout << "- Softwares de alto desempenho (ex.: simuladores, bancos financeiros)." << std::endl;
-                    break;
-                case 3:
-                    std::cout << "Características da Linguagem:" << std::endl;
-                    std::cout << "C++ é conhecida por:" << std::endl;
-                    std::cout << "- Suporte a programação orientada a objetos (POO);" << std::endl;
-                    std::cout << "- Controle direto de hardware e memória;" << std::endl;
-                    std::cout << "- Eficiência e velocidade de execução." << std::endl;
-                    break;
-                case 4:
-                    std::cout << "Obrigado por usar o nosso sistema, " << nome << "! Até mais!" << std::endl;
-                    break;
-                default:
-                    std::cout << "Opção inválida. Por favor, tente novamente." << std::endl;
-                    break;
-            }
-        } while (escolha != 4);
-
-    } else {
-        std::cout << "Você não pode iniciar o programa. Idade mínima é 13 anos." << std::endl;
+    if (idade <= 12) {
+        std::cout << "Você não pode iniciar o programa. Idade mínima é 13 anos.\n";
+        return 0;
     }
+
+    std::cout << "Bem-vindo, " << nome << "!\n";
+
+    do {
+        std::cout << "\nEscolha um tema para aprender sobre C++:\n";
+        std::cout << "1 - História e Origem\n2 - Aplicações de C++\n3 - Características da Linguagem\n4 - Sair\n";
+        std::cout << "Digite o número da sua escolha: ";
+        std::cin >> escolha;
+
+        switch (escolha) {
+            case 1:
+                std::cout << "C++ foi criado em 1985 por Bjarne Stroustrup como uma extensão da linguagem C.\n";
+                break;
+            case 2:
+                std::cout << "Usado em jogos, sistemas operacionais e softwares de alto desempenho.\n";
+                break;
+            case 3:
+                std::cout << "C++ suporta POO, controle de hardware/memória e é muito eficiente.\n";
+                break;
+            case 4:
+                std::cout << "Obrigado por usar o nosso sistema, " << nome << "! Até mais!\n";
+                break;
+            default:
+                std::cout << "Opção inválida. Tente novamente.\n";
+        }
+    } while (escolha != 4);
 
     return 0;
 }
